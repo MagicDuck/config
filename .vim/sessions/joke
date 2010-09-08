@@ -1,0 +1,284 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:cpo_save=&cpo
+set cpo&vim
+inoremap <C-Tab> 	
+inoremap <silent> <expr> <S-Tab> pumvisible() ? "\" : "\<S-Tab>"
+map! <S-Insert> <MiddleMouse>
+noremap  :pop
+noremap  :tag
+nnoremap <silent>  :bp
+snoremap <silent> 	 i<Right>=TriggerSnippet()
+nnoremap <silent> <NL> h
+nnoremap <silent>  l
+nnoremap <silent>  :bn
+noremap  
+noremap  :tag 
+nnoremap d :Bclose
+snoremap  b<BS>
+snoremap % b<BS>%
+snoremap ' b<BS>'
+nmap <silent> ,cv <Plug>VCSVimDiff
+nmap <silent> ,cu <Plug>VCSUpdate
+nmap <silent> ,cU <Plug>VCSUnlock
+nmap <silent> ,cs <Plug>VCSStatus
+nmap <silent> ,cr <Plug>VCSReview
+nmap <silent> ,cq <Plug>VCSRevert
+nmap <silent> ,cn <Plug>VCSAnnotate
+nmap <silent> ,cN <Plug>VCSSplitAnnotate
+nmap <silent> ,cl <Plug>VCSLog
+nmap <silent> ,cL <Plug>VCSLock
+nmap <silent> ,ci <Plug>VCSInfo
+nmap <silent> ,cg <Plug>VCSGotoOriginal
+nmap <silent> ,cG <Plug>VCSClearAndGotoOriginal
+nmap <silent> ,cd <Plug>VCSDiff
+nmap <silent> ,cD <Plug>VCSDelete
+nmap <silent> ,cc <Plug>VCSCommit
+nmap <silent> ,ca <Plug>VCSAdd
+nmap <silent> ,lj :LustyJuggler
+nmap <silent> ,lg :LustyJuggler
+nnoremap <silent> ,bd :Bclose
+nnoremap <silent> ,fm :FuzzyFinderMruFile
+nnoremap <silent> ,fk :FuzzyFinderMruCmd
+nnoremap <silent> ,ft :FuzzyFinderTag!
+nnoremap <silent> ,fj :FuzzyFinderTextMate
+nnoremap <silent> ,fd :FuzzyFinderDir
+nnoremap <silent> ,ff :FuzzyFinderFile
+nnoremap <silent> ,fw :FuzzyFinderBuffer
+nnoremap ,, :LustyJuggler
+xmap S <Plug>VSurround
+snoremap U b<BS>U
+map Y y$
+snoremap \ b<BS>\
+snoremap ^ b<BS>^
+snoremap ` b<BS>`
+nmap cs <Plug>Csurround
+nmap ds <Plug>Dsurround
+nmap gx <Plug>NetrwBrowseX
+xmap gS <Plug>VgSurround
+nnoremap <expr> gf empty(taglist(expand('<cfile>'))) ? "gf" : ":ta "
+xmap s <Plug>Vsurround
+nmap ySS <Plug>YSsurround
+nmap ySs <Plug>YSsurround
+nmap yss <Plug>Yssurround
+nmap yS <Plug>YSurround
+nmap ys <Plug>Ysurround
+snoremap <Left> bi
+snoremap <Right> a
+snoremap <BS> b<BS>
+snoremap <silent> <S-Tab> i<Right>=BackwardsSnippet()
+nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>"),0)
+nnoremap <silent> <Plug>CVSWatchRemove :CVSWatch remove
+nnoremap <silent> <Plug>CVSWatchOn :CVSWatch on
+nnoremap <silent> <Plug>CVSWatchOff :CVSWatch off
+nnoremap <silent> <Plug>CVSWatchAdd :CVSWatch add
+nnoremap <silent> <Plug>CVSWatchers :CVSWatchers
+nnoremap <silent> <Plug>CVSUnedit :CVSUnedit
+nnoremap <silent> <Plug>CVSEditors :CVSEditors
+nnoremap <silent> <Plug>CVSEdit :CVSEdit
+nnoremap <silent> <Plug>VCSVimDiff :VCSVimDiff
+nnoremap <silent> <Plug>VCSUpdate :VCSUpdate
+nnoremap <silent> <Plug>VCSUnlock :VCSUnlock
+nnoremap <silent> <Plug>VCSStatus :VCSStatus
+nnoremap <silent> <Plug>VCSSplitAnnotate :VCSAnnotate!
+nnoremap <silent> <Plug>VCSReview :VCSReview
+nnoremap <silent> <Plug>VCSRevert :VCSRevert
+nnoremap <silent> <Plug>VCSLog :VCSLog
+nnoremap <silent> <Plug>VCSLock :VCSLock
+nnoremap <silent> <Plug>VCSInfo :VCSInfo
+nnoremap <silent> <Plug>VCSClearAndGotoOriginal :VCSGotoOriginal!
+nnoremap <silent> <Plug>VCSGotoOriginal :VCSGotoOriginal
+nnoremap <silent> <Plug>VCSDiff :VCSDiff
+nnoremap <silent> <Plug>VCSDelete :VCSDelete
+nnoremap <silent> <Plug>VCSCommit :VCSCommit
+nnoremap <silent> <Plug>VCSAnnotate :VCSAnnotate
+nnoremap <silent> <Plug>VCSAdd :VCSAdd
+nnoremap <silent> <Plug>Kwbd :Kwbd
+nnoremap <silent> <C-F5> :SessionOpenLast
+nnoremap <silent> <C-F4> :SessionList 
+nnoremap <silent> <C-F3> :SessionSave 
+map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .
+nnoremap <F11> :e 
+nnoremap <F10> :b 
+nnoremap <silent> <F12> :TlistToggle
+nnoremap <silent> <F2> :NERDTreeToggle
+nnoremap <silent> <C-F6> :mak clean
+nnoremap <silent> <F6> :mak
+map <S-Insert> <MiddleMouse>
+inoremap  :pop
+inoremap  :tag
+imap S <Plug>ISurround
+imap s <Plug>Isurround
+inoremap <silent> 	 =TriggerSnippet()
+inoremap <silent> <expr>  pumvisible() ? "\\\z" : "\"
+inoremap <silent> 	 =ShowAvailableSnips()
+imap  <Plug>Isurround
+let &cpo=s:cpo_save
+unlet s:cpo_save
+set autoindent
+set autoread
+set autowrite
+set autowriteall
+set backspace=indent,eol,start
+set cmdheight=2
+set completeopt=menu,preview,longest,menuone
+set expandtab
+set fileencodings=ucs-bom,utf-8,default,latin1
+set guioptions=aegimrLt
+set helplang=en
+set hlsearch
+set ignorecase
+set incsearch
+set infercase
+set laststatus=2
+set listchars=tab:Â»Â·,trail:Â·,extends:â€¦,eol:Â¶
+set mouse=a
+set ruler
+set sessionoptions=buffers,curdir,folds,globals,localoptions,options,resize,tabpages,winpos,winsize
+set shiftwidth=4
+set showfulltag
+set smartcase
+set smarttab
+set softtabstop=4
+set statusline=%3.3n\ %f\ %h%1*%m%r%w%0*[%{strlen(&ft)?&ft:'none'},%{strlen(&fenc)?&fenc:&enc}%{&bomb?'/bom':''},%{&fileformat}]%{exists('loaded_scmbag')?SCMbag_Info():''}%=0x%-8B\ %-14.(%l,%c%V%)\ %<%P
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+set tabstop=4
+set tags=./tags,./TAGS,tags,TAGS,~/.vim/tags/cpp,~/.vim/tags/gl
+set termencoding=utf-8
+set updatetime=1000
+set wildcharm=26
+set wildmenu
+set wildmode=longest:full
+set window=57
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+let NERDTreeMapPreviewSplit = "gi"
+let NERDTreeMapCloseChildren = "X"
+let NERDTreeShowHidden = "0"
+let SuperTabDefaultCompletionType = "<c-p>"
+let Tlist_Enable_Fold_Column =  0 
+let Tlist_Use_SingleClick =  0 
+let SuperTabLongestHighlight =  0 
+let NERDTreeMapCloseDir = "x"
+let NERDTreeMapExecute = "!"
+let Tlist_Show_One_File =  1 
+let SuperTabMappingTabLiteral = "<c-tab>"
+let NERDTreeShowLineNumbers = "0"
+let Tlist_Compact_Format =  1 
+let Tlist_Sort_Type = "order"
+let Tlist_Use_Horiz_Window =  0 
+let SuperTabRetainCompletionDuration = "insert"
+let NERDTreeBookmarksFile = "/home/catalin/.NERDTreeBookmarks"
+let NERDTreeMapToggleHidden = "I"
+let NERDTreeWinSize = "31"
+let Tlist_Ctags_Cmd = "ctags"
+let OmniCpp_ShowPrototypeInAbbr =  0 
+let VCSCommandEnableBufferSetup =  1 
+let Tlist_Process_File_Always =  1 
+let OmniCpp_MayCompleteScope =  1 
+let NERDTreeMapPreview = "go"
+let NERDTreeMapActivateNode = "o"
+let NERDTreeWinPos = "left"
+let OmniCpp_GlobalScopeSearch =  1 
+let NERDTreeStatusline = "%{b:NERDTreeRoot.path.strForOS(0)}"
+let Tlist_Display_Tag_Scope =  1 
+let NERDTreeMapOpenInTabSilent = "T"
+let OmniCpp_SelectFirstItem =  2 
+let NERDTreeMapHelp = "?"
+let NERDTreeMapJumpParent = "p"
+let NERDTreeMapToggleFilters = "f"
+let SuperTabMappingForward = "<tab>"
+let NERDTreeMapJumpLastChild = "J"
+let SuperTabContextDefaultCompletionType = "<c-p>"
+let TagList_title = "__Tag_List__"
+let NERDTreeMapJumpPrevSibling = "<C-k>"
+let NERDTreeShowBookmarks =  1 
+let NERDTreeRemoveDirCmd = "rm -rf "
+let NERDTreeMapOpenInTab = "t"
+let NERDTreeChDirMode =  2 
+let OmniCpp_NamespaceSearch =  2 
+let Tlist_Highlight_Tag_On_BufEnter =  1 
+let Tlist_Auto_Highlight_Tag =  1 
+let NERDTreeAutoCenterThreshold = "3"
+let NERDTreeShowFiles = "1"
+let NERDTreeMapOpenSplit = "i"
+let NERDTreeCaseSensitiveSort = "0"
+let NERDTreeHijackNetrw = "1"
+let Tlist_Max_Submenu_Items =  20 
+let NERDTreeMapFilesystemMenu = "m"
+let NERDTreeMapRefresh = "r"
+let NERDTreeHighlightCursorline = "1"
+let Tlist_GainFocus_On_ToggleOpen =  1 
+let NERDTreeMouseMode = "1"
+let Tlist_WinHeight =  10 
+let Tlist_Inc_Winwidth =  1 
+let Tlist_Auto_Update =  1 
+let OmniCpp_MayCompleteArrow =  1 
+let NERDTreeMapPreviewVSplit = "gs"
+let NERDChristmasTree =  1 
+let NERDShutUp =  1 
+let NERDTreeNotificationThreshold = "100"
+let BufExplorer_title = "[Buf List]"
+let NERDTreeMapChdir = "cd"
+let Tlist_Exit_OnlyWindow =  1 
+let Tlist_Display_Prototype =  0 
+let NERDTreeMapRefreshRoot = "R"
+let Tlist_Max_Tag_Length =  10 
+let NERDTreeAutoCenter = "1"
+let NERDTreeMapOpenVSplit = "s"
+let OmniCpp_ShowAccess =  0 
+let Tlist_WinWidth =  30 
+let NERDTreeMapDeleteBookmark = "D"
+let Tlist_Close_On_Select =  0 
+let NERDTreeMapJumpNextSibling = "<C-j>"
+let Tlist_File_Fold_Auto_Close =  0 
+let Tlist_Auto_Open =  0 
+let OmniCpp_MayCompleteDot =  1 
+let NERDTreeMapJumpRoot = "P"
+let NERDTreeCopyCmd = "cp -r "
+let NERDTreeMapQuit = "q"
+let NERDTreeMapChangeRoot = "C"
+let NERDTreeSortDirs = "1"
+let NERDTreeMapToggleFiles = "F"
+let SuperTabMidWordCompletion =  1 
+let NERDTreeMapOpenExpl = "e"
+let NERDTreeMapJumpFirstChild = "K"
+let NERDTreeMapOpenRecursively = "O"
+let NERDTreeMapToggleBookmarks = "B"
+let SuperTabMappingBackward = "<s-tab>"
+let NERDTreeMapUpdir = "u"
+let NERDTreeMapUpdirKeepOpen = "U"
+let NERDTreeQuitOnOpen = "0"
+let Tlist_Show_Menu =  0 
+let Tlist_Use_Right_Window =  1 
+silent only
+cd ~/vimmie
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +1 content.js
+badd +1 get-key.js
+badd +1 jquery.js
+silent! argdel *
+set lines=58 columns=130
+winpos 0 20
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+tabnext 1
+if exists('s:wipebuf')
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filnxtToO
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :

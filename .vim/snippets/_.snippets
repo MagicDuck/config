@@ -1,0 +1,21 @@
+# Global snippets
+
+# (c) holds no legal value ;)
+snippet c)
+	`&enc[:2] == "utf" ? "©" : "(c)"` Copyright `strftime("%Y")` ${1:`g:snips_author`}. All Rights Reserved.${2}
+snippet date
+	`strftime("%Y-%m-%d")`
+snippet br
+	{
+		${1:/* code */}
+	}
+snippet brc
+	{ /*
+		${1:comment}
+	*/
+		${2:/* code */}
+	}
+snippet cm
+	/*
+		${1:comment}
+	*/

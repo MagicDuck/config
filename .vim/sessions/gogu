@@ -1,0 +1,531 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:cpo_save=&cpo
+set cpo&vim
+inoremap <C-Tab> 	
+inoremap <silent> <expr> <S-Tab> pumvisible() ? "\" : "\<S-Tab>"
+map! <S-Insert> <MiddleMouse>
+noremap  :pop
+noremap  :tag
+nnoremap <silent>  :bp
+snoremap <silent> 	 i<Right>=TriggerSnippet()
+nnoremap <silent> <NL> h
+nnoremap <silent>  l
+nnoremap <silent>  :bn
+noremap  
+noremap  :tag 
+nnoremap d :Bclose
+snoremap  b<BS>
+map <silent> j :bp
+map <silent> k :bn
+snoremap % b<BS>%
+snoremap ' b<BS>'
+nmap <silent> ,cv <Plug>VCSVimDiff
+nmap <silent> ,cu <Plug>VCSUpdate
+nmap <silent> ,cU <Plug>VCSUnlock
+nmap <silent> ,cs <Plug>VCSStatus
+nmap <silent> ,cr <Plug>VCSReview
+nmap <silent> ,cq <Plug>VCSRevert
+nmap <silent> ,cn <Plug>VCSAnnotate
+nmap <silent> ,cN <Plug>VCSSplitAnnotate
+nmap <silent> ,cl <Plug>VCSLog
+nmap <silent> ,cL <Plug>VCSLock
+nmap <silent> ,ci <Plug>VCSInfo
+nmap <silent> ,cg <Plug>VCSGotoOriginal
+nmap <silent> ,cG <Plug>VCSClearAndGotoOriginal
+nmap <silent> ,cd <Plug>VCSDiff
+nmap <silent> ,cD <Plug>VCSDelete
+nmap <silent> ,cc <Plug>VCSCommit
+nmap <silent> ,ca <Plug>VCSAdd
+nmap <silent> ,lj :LustyJuggler
+nmap <silent> ,lg :LustyJuggler
+nnoremap <silent> ,bd :Bclose
+nnoremap <silent> ,fm :FuzzyFinderMruFile
+nnoremap <silent> ,fk :FuzzyFinderMruCmd
+nnoremap <silent> ,ft :FuzzyFinderTag!
+nnoremap <silent> ,fj :FuzzyFinderTextMate
+nnoremap <silent> ,fd :FuzzyFinderDir
+nnoremap <silent> ,ff :FuzzyFinderFile
+nnoremap <silent> ,fw :FuzzyFinderBuffer
+nnoremap ,, :LustyJuggler
+xmap S <Plug>VSurround
+snoremap U b<BS>U
+map Y y$
+snoremap \ b<BS>\
+snoremap ^ b<BS>^
+snoremap ` b<BS>`
+nmap cs <Plug>Csurround
+nmap ds <Plug>Dsurround
+nmap gx <Plug>NetrwBrowseX
+xmap gS <Plug>VgSurround
+nnoremap <expr> gf empty(taglist(expand('<cfile>'))) ? "gf" : ":ta "
+xmap s <Plug>Vsurround
+nmap ySS <Plug>YSsurround
+nmap ySs <Plug>YSsurround
+nmap yss <Plug>Yssurround
+nmap yS <Plug>YSurround
+nmap ys <Plug>Ysurround
+snoremap <Left> bi
+snoremap <Right> a
+snoremap <BS> b<BS>
+snoremap <silent> <S-Tab> i<Right>=BackwardsSnippet()
+nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>"),0)
+nnoremap <silent> <Plug>CVSWatchRemove :CVSWatch remove
+nnoremap <silent> <Plug>CVSWatchOn :CVSWatch on
+nnoremap <silent> <Plug>CVSWatchOff :CVSWatch off
+nnoremap <silent> <Plug>CVSWatchAdd :CVSWatch add
+nnoremap <silent> <Plug>CVSWatchers :CVSWatchers
+nnoremap <silent> <Plug>CVSUnedit :CVSUnedit
+nnoremap <silent> <Plug>CVSEditors :CVSEditors
+nnoremap <silent> <Plug>CVSEdit :CVSEdit
+nnoremap <silent> <Plug>VCSVimDiff :VCSVimDiff
+nnoremap <silent> <Plug>VCSUpdate :VCSUpdate
+nnoremap <silent> <Plug>VCSUnlock :VCSUnlock
+nnoremap <silent> <Plug>VCSStatus :VCSStatus
+nnoremap <silent> <Plug>VCSSplitAnnotate :VCSAnnotate!
+nnoremap <silent> <Plug>VCSReview :VCSReview
+nnoremap <silent> <Plug>VCSRevert :VCSRevert
+nnoremap <silent> <Plug>VCSLog :VCSLog
+nnoremap <silent> <Plug>VCSLock :VCSLock
+nnoremap <silent> <Plug>VCSInfo :VCSInfo
+nnoremap <silent> <Plug>VCSClearAndGotoOriginal :VCSGotoOriginal!
+nnoremap <silent> <Plug>VCSGotoOriginal :VCSGotoOriginal
+nnoremap <silent> <Plug>VCSDiff :VCSDiff
+nnoremap <silent> <Plug>VCSDelete :VCSDelete
+nnoremap <silent> <Plug>VCSCommit :VCSCommit
+nnoremap <silent> <Plug>VCSAnnotate :VCSAnnotate
+nnoremap <silent> <Plug>VCSAdd :VCSAdd
+nnoremap <silent> <Plug>Kwbd :Kwbd
+nnoremap <silent> <C-F5> :SessionOpenLast
+nnoremap <silent> <C-F4> :SessionList 
+nnoremap <silent> <C-F3> :SessionSave 
+map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .
+nnoremap <F11> :e 
+nnoremap <F10> :b 
+nnoremap <silent> <F12> :TlistToggle
+nnoremap <silent> <F2> :NERDTreeToggle
+nnoremap <silent> <C-F6> :mak clean
+nnoremap <silent> <F6> :mak
+map <S-Insert> <MiddleMouse>
+inoremap  :pop
+inoremap  :tag
+imap S <Plug>ISurround
+imap s <Plug>Isurround
+inoremap <silent> 	 =TriggerSnippet()
+inoremap <silent> <expr>  pumvisible() ? "\\\z" : "\"
+inoremap <silent> 	 =ShowAvailableSnips()
+imap  <Plug>Isurround
+map <silent> ê :bp
+map <silent> ë :bn
+let &cpo=s:cpo_save
+unlet s:cpo_save
+set autoindent
+set autoread
+set autowrite
+set autowriteall
+set background=dark
+set backspace=indent,eol,start
+set cmdheight=2
+set completeopt=menu,preview,longest,menuone
+set noequalalways
+set expandtab
+set fileencodings=ucs-bom,utf-8,default,latin1
+set guioptions=aegimrLt
+set helplang=en
+set hlsearch
+set ignorecase
+set incsearch
+set infercase
+set laststatus=2
+set listchars=tab:»·,trail:·,extends:���,eol:¶
+set mouse=a
+set ruler
+set shiftwidth=4
+set showfulltag
+set smartcase
+set smarttab
+set softtabstop=4
+set statusline=%3.3n\ %f\ %h%1*%m%r%w%0*[%{strlen(&ft)?&ft:'none'},%{strlen(&fenc)?&fenc:&enc}%{&bomb?'/bom':''},%{&fileformat}]%{exists('loaded_scmbag')?SCMbag_Info():''}%=0x%-8B\ %-14.(%l,%c%V%)\ %<%P
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+set tabstop=4
+set tags=./tags,./TAGS,tags,TAGS,~/.vim/tags/cpp,~/.vim/tags/gl
+set termencoding=utf-8
+set updatetime=1000
+set wildcharm=26
+set wildmenu
+set window=56
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/vimmie
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +59 ~/projects/cmpt361a1/main.cpp
+badd +1 ~/projects/cmpt361a1/box.h
+badd +1 ~/projects/cmpt361a1/box.cpp
+badd +1 backend.html
+badd +1 content.js
+badd +6 get-key.js
+badd +0 ~/.vimrc
+silent! argdel *
+edit ~/.vimrc
+set splitbelow splitright
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd w
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+exe '1resize ' . ((&lines * 27 + 28) / 57)
+exe '2resize ' . ((&lines * 26 + 28) / 57)
+exe 'vert 2resize ' . ((&columns * 31 + 65) / 130)
+exe '3resize ' . ((&lines * 26 + 28) / 57)
+exe 'vert 3resize ' . ((&columns * 98 + 65) / 130)
+argglobal
+edit /usr/share/vim/vim72/doc/options.txt
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=
+setlocal nobuflisted
+setlocal buftype=help
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=
+setlocal nocopyindent
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'help'
+setlocal filetype=help
+endif
+setlocal foldcolumn=0
+setlocal nofoldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=tcroql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=2
+setlocal imsearch=2
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal infercase
+setlocal iskeyword=!-~,^*,^|,^\",192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal nomodifiable
+setlocal nrformats=octal,hex
+set number
+setlocal nonumber
+setlocal numberwidth=4
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal readonly
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=4
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'help'
+setlocal syntax=help
+endif
+setlocal tabstop=8
+setlocal tags=
+setlocal textwidth=78
+setlocal thesaurus=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 5613 - ((20 * winheight(0) + 13) / 27)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+5613
+normal! 022l
+lcd /usr/share/vim/vim72/doc
+wincmd w
+argglobal
+enew
+file ~/vimmie/NERD_tree_1
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=
+setlocal nobuflisted
+setlocal buftype=nofile
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=
+setlocal nocopyindent
+setlocal nocursorcolumn
+setlocal cursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'nerdtree'
+setlocal filetype=nerdtree
+endif
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=tcq
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=2
+setlocal imsearch=2
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal infercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal nomodifiable
+setlocal nrformats=octal,hex
+set number
+setlocal nonumber
+setlocal numberwidth=4
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=4
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal noswapfile
+setlocal synmaxcol=3000
+if &syntax != 'nerdtree'
+setlocal syntax=nerdtree
+endif
+setlocal tabstop=4
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal nowinfixheight
+setlocal winfixwidth
+setlocal nowrap
+setlocal wrapmargin=0
+lcd ~/vimmie
+wincmd w
+argglobal
+vnoremap <buffer> <silent> [" :exe "normal! gv"|call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")
+nnoremap <buffer> <silent> [" :call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")
+vnoremap <buffer> <silent> [] m':exe "normal! gv"|call search('^\s*endf*\%[unction]\>', "bW")
+nnoremap <buffer> <silent> [] m':call search('^\s*endf*\%[unction]\>', "bW")
+vnoremap <buffer> <silent> [[ m':exe "normal! gv"|call search('^\s*fu\%[nction]\>', "bW")
+nnoremap <buffer> <silent> [[ m':call search('^\s*fu\%[nction]\>', "bW")
+vnoremap <buffer> <silent> ]" :exe "normal! gv"|call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")
+nnoremap <buffer> <silent> ]" :call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")
+vnoremap <buffer> <silent> ][ m':exe "normal! gv"|call search('^\s*endf*\%[unction]\>', "W")
+nnoremap <buffer> <silent> ][ m':call search('^\s*endf*\%[unction]\>', "W")
+vnoremap <buffer> <silent> ]] m':exe "normal! gv"|call search('^\s*fu\%[nction]\>', "W")
+nnoremap <buffer> <silent> ]] m':call search('^\s*fu\%[nction]\>', "W")
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal comments=sO:\"\ -,mO:\"\ \ ,eO:\"\",:\"
+setlocal commentstring=\"%s
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=
+setlocal nocopyindent
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'vim'
+setlocal filetype=vim
+endif
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=croql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=2
+setlocal imsearch=2
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=GetVimIndent()
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e,=end,=else,=cat,=fina,=END,0\\
+setlocal infercase
+setlocal iskeyword=@,48-57,_,192-255,#
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+set number
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=4
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'vim'
+setlocal syntax=vim
+endif
+setlocal tabstop=4
+setlocal tags=
+setlocal textwidth=78
+setlocal thesaurus=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 1 - ((0 * winheight(0) + 13) / 26)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
+lcd ~/
+wincmd w
+3wincmd w
+exe '1resize ' . ((&lines * 27 + 28) / 57)
+exe '2resize ' . ((&lines * 26 + 28) / 57)
+exe 'vert 2resize ' . ((&columns * 31 + 65) / 130)
+exe '3resize ' . ((&lines * 26 + 28) / 57)
+exe 'vert 3resize ' . ((&columns * 98 + 65) / 130)
+tabnext 1
+if exists('s:wipebuf')
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filnxtToO
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :
