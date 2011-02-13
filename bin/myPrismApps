@@ -1,0 +1,6 @@
+#!/bin/bash
+DIR="/home/catalin/bin"
+exec "$DIR/rememberthemilk" & exec "$DIR/gmail" & exec "$DIR/gcalendar" 
+#exec prism -override "/home/catalin/.webapps/rtm@prism.app/override.ini" -webapp rtm@prism.app &
+#exec prism -override "/home/catalin/.webapps/gmail@prism.app/override.ini" -webapp gmail@prism.app
+

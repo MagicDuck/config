@@ -1,0 +1,3 @@
+#!/bin/bash
+prism -override "/home/catalin/.webapps/gcalendar@prism.app/override.ini" -webapp gcalendar@prism.app
+

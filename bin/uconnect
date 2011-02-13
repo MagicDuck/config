@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# connects filesystem to university account for easier editing
+sshfs tt022@cs.ucok.edu:/home/tt/tt022 /mnt/uco/

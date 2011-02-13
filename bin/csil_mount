@@ -1,0 +1,2 @@
+#!/bin/bash
+sshfs  csb2@fraser.sfu.ca:$1 $2

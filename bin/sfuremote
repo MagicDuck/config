@@ -1,0 +1,3 @@
+#!/bin/bash
+rdesktop -f leto.csil.sfu.ca -g 800x600 -a 15
+

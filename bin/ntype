@@ -1,0 +1,2 @@
+#!/bin/bash
+exec "/opt/n-type-1.0-linux/run"

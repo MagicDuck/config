@@ -1,0 +1,2 @@
+#!/bin/bash
+trayer --SetDockType true --widthtype request --edge bottom --align right --transparent true --alpha 255 &

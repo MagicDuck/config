@@ -1,0 +1,3 @@
+#!/bin/bash
+prism -override "/home/catalin/.webapps/gmail@prism.app/override.ini" -webapp gmail@prism.app
+
