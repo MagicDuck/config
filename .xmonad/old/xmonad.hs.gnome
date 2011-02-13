@@ -1,0 +1,20 @@
+import XMonad
+import XMonad.Config.Gnome
+import XMonad.Util.EZConfig
+import XMonad.Actions.CycleWS
+
+main = xmonad $ gnomeConfig 
+    { terminal           = "terminal"
+    , modMask            = mod4Mask
+    , borderWidth        = 4 
+    , workspaces         = ["1:gtd", "2:web", "3:ide" ] ++ map show [4..7]
+    , normalBorderColor  = "#dddddd"
+    , focusedBorderColor = "#166DA0"
+    }
+    `additionalKeysP` 
+        [ ("M-u",    prevWS )
+        , ("M-i",   nextWS )
+        , ("M-S-u",  shiftToPrev )
+        , ("M-S-i", shiftToNext )
+        ]
+

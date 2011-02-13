@@ -1,0 +1,58 @@
+gap_y -1000
+
+double_buffer yes
+out_to_console yes
+own_window yes
+own_window_type desktop
+update_interval 2.0
+
+TEXT
+E='echo -n'
+
+$$E '^p(5)'
+
+# Choose an appropriate icon
+${if_match "${acpiacadapter}" == "on-line"}
+  $$E '^i(/home/gray/.dzen/bitmaps/sm2tik/ac_01.xbm)'
+${else}
+  $$E '^i(/home/gray/.dzen/bitmaps/sm2tik/bat_full_01.xbm)'
+${endif}
+
+$$E '^p(5)^ib(1)^pa(18;1)'
+
+# Get battery bar
+BAR=`echo ${battery_percent C23B} | gdbar -w 20 -h 5 -sw 1 -nonl`
+
+# Blink battery bar if battery <= 10%
+BLINK=false
+${if_match "${acpiacadapter}" == "off-line"}
+  ${if_match ${battery_percent C23B} <= 10}
+    BLINK=true
+  ${endif}
+${endif}
+if [ $$BLINK = true ]; then
+  ${blink $$E $$BAR}
+  $$E
+else
+  $$E $$BAR
+fi
+
+# Battery percent
+$$E '^fn(xft:monospace:size=5)^pa(40;-1)'
+$$E '${battery_percent C23B}%'
+
+$$E '^pa(17;6)'
+
+# Battery time if not on AC or message
+${if_match "${acpiacadapter}" == "off-line"}
+  ${if_empty ${battery_time C23B}}
+    $$E 'calculating'
+  ${else}
+    $$E '${battery_time C23B}'
+  ${endif}
+${else}
+  $$E 'plugged in'
+${endif}
+
+echo
+

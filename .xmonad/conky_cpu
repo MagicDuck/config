@@ -1,0 +1,47 @@
+gap_y -1000
+
+double_buffer yes
+out_to_console yes
+own_window yes
+own_window_type desktop
+update_interval 3.0
+
+TEXT
+E='echo -n'
+
+# Set icon
+$$E '^p(5)^i(/home/gray/.dzen/bitmaps/sm2tik/cpu.xbm)^p(5)'
+
+# Add new segment to the graph file
+echo ${cpu} | gdbar -s v -h 15 -sw 1 >> /tmp/.dzen2cpugraph
+
+# Print last 15 segments dequeuing the oldest one
+QUEUE=`tail -n 15 /tmp/.dzen2cpugraph`
+ISFIRST=true
+for ITEM in $$QUEUE; do
+  $$E $$ITEM
+  if [ $$ISFIRST = true ]; then
+    echo $$ITEM >/tmp/.dzen2cpugraph
+    ISFIRST=false
+  fi
+  echo $$ITEM >>/tmp/.dzen2cpugraph
+done
+
+$$E '^ib(1)^fn(xft:monospace:size=5)^pa(36;-1)'
+
+# CPU usage percent
+$$E 'u: ^fg(white)${cpu}%^fg()'
+
+$$E '^pa(62;)'
+$$E 't: ${acpitemp}°'
+
+# Cores pies and frequencies
+$$E '^pa(36;6)'
+echo ${cpu cpu1} | gdbar -s p -w 7 -nonl
+$$E '^fg()^p(2)${freq_g 1}'
+$$E '^p(3)'
+echo ${cpu cpu2} | gdbar -s p -w 7 -nonl
+$$E '^fg()^p(2)${freq_g 2}'
+
+echo
+

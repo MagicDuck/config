@@ -1,0 +1,21 @@
+import XMonad
+import XMonad.Config.Kde
+import XMonad.Util.EZConfig
+import XMonad.Actions.CycleWS
+import qualified XMonad.StackSet as W
+
+main = xmonad $ kdeConfig 
+    { terminal           = "terminal"
+    , modMask            = mod4Mask
+    , borderWidth        = 4 
+    , workspaces         = ["1:gtd", "2:web", "3:ide" ] ++ map show [4..7]
+    , normalBorderColor  = "#dddddd"
+    , focusedBorderColor = "#166DA0"
+    }
+    `additionalKeysP` 
+        [ ("M-u",    prevWS )
+        , ("M-i",   nextWS )
+        , ("M-S-u",  shiftToPrev )
+        , ("M-S-i", shiftToNext )
+        ]
+
